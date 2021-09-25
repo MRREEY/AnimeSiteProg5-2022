@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('animes', function () {
     return view('animes');
 });
+
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'show']);

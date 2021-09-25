@@ -3,4 +3,69 @@ body {
     color: white;
 }
 
+p {
+    text-align: center;
+    color: #BC6FF1;
+}
+.container{
+    width: 400px;
+    margin: 100px auto;
+    background: #52057B;
+    position: relative;
+    display: flex;
+}
+.container p{
+    margin: 3px;
+    padding: 10px;
+    font-family: Arial;
+    font-size: 1em;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: mySecondFont;
+    color: #BC6FF1;
+}
+
+h2 {
+    color: #892CDC;
+
+}
+
+hr {
+    background-color: #52057B; height: 2px; border: none;
+}
+
+li {
+    display: inline;
+}
+
+.nav ul {
+    list-style: none;
+    background-color: #52057B;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    display:inline-block;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #BC6FF1;
+    width: 100px;
+    display: block;
+    padding: 15px;
+    font-size: 17px;
+    transition: 0.4s;
+}
+
+.nav a:hover {
+    background: #52057B;
+    transition: 0.4s;
+}
 /*#52057B #892CDC #BC6FF1*/
