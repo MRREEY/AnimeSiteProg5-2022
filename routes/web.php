@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Dynamic linking
+//Laracast-8
+Route::get('animes/{anime}', function ($slug){
+
+    $path = __DIR__ . "/../resources/animes/{$slug}.html";
+
+    //File bestaan niet => doorlinken welcome pagina
+    if (! file_exists($path)) {
+        return redirect('/');
+    }
+
+    $anime = file_get_contents($path);
+
+    return view('anime', [
+        'anime' => $anime
+    ]);
+});
+
 Route::get('animes', function () {
     return view('animes');
 });
 
-Route::get('/about', [\App\Http\Controllers\AboutController::class, 'show']);
+Route::get('/about', [AboutController::class, 'show']);
