@@ -15,26 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $files = File::files(resource_path("animes/"));
+
+    return view('animes', [
+        'animes' => \App\Models\Anime::all()
+    ]);
 });
 
 //Dynamic linking
 //Laracast-8
 Route::get('animes/{anime}', function ($slug){
-
-    $path = __DIR__ . "/../resources/animes/{$slug}.html";
-
-    //File bestaan niet => doorlinken welcome pagina
-    if (! file_exists($path)) {
-        return redirect('/');
-    }
-
-    $anime = file_get_contents($path);
+    //find een post bij de slug en geef het aan een post view
+    $anime = \App\Models\Anime::find($slug);
 
     return view('anime', [
         'anime' => $anime
     ]);
-});
+
+})->where('anime', '[A-z_\-]+');
 
 Route::get('animes', function () {
     return view('animes');

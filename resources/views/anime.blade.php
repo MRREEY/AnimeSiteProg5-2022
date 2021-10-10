@@ -10,7 +10,7 @@
             <div class="nav">
                 <ul>
                     <li><a class="active" href="#">Home</a></li>
-                    <li><a href="/animes">Animes</a></li>
+                    <li><a href="/">Animes</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>
@@ -19,9 +19,16 @@
         <hr>
 
         <article>
-            <?= $anime;?>
+            <h1>
+                <?= $anime->title; ?>
+            </h1>
+
+            <div>
+                <?= $anime->body; ?>
+            </div>
+
         </article>
 
-        <a href="/animes">Go back</a>
+        <a href="/">Go back</a>
 
     </body>

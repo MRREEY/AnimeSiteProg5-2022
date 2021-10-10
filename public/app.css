@@ -3,6 +3,11 @@ body {
     color: white;
 }
 
+div {
+    text-align: center;
+    color: #892CDC;
+}
+
 p {
     text-align: center;
     color: #BC6FF1;
