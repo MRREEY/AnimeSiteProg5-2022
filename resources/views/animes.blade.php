@@ -1,36 +1,36 @@
-<!doctype html>
+@extends('layout')
 
-    <title>Anime List</title>
-    <link rel="stylesheet" href="/app.css">
-
-    <body>
-
+    @section('navbar')
         <hr>
 
-            <div class="nav">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a class="active"  href="/">Animes</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
-            </div>
+        <div class="nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a class="active"  href="/">Animes</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
 
         <hr>
+    @endsection
 
-        <?php foreach ($animes as $anime) : ?>
 
-        <article>
-            <h1>
-                <a href="/animes/<?= $anime->slug; ?>">
-                    <?= $anime->title; ?>
-                </a>
-            </h1>
+    @section('content')
 
-            <div>
-                <?= $anime->excerpt; ?>
-            </div>
+        @foreach ($animes as $anime)
+            <article>
+                <h1>
+                    <a href="/animes/{{$anime->id}}">
+                        {!! $anime->title !!}
+                    </a>
+                </h1>
 
-        </article>
-        <?php endforeach; ?>
-    </body>
+                <div>
+                    {!! $anime->excerpt !!}
+                </div>
+
+            </article>
+        @endforeach
+
+    @endsection

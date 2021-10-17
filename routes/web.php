@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Anime;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $files = File::files(resource_path("animes/"));
-
     return view('animes', [
         'animes' => \App\Models\Anime::all()
     ]);
@@ -24,15 +23,15 @@ Route::get('/', function () {
 
 //Dynamic linking
 //Laracast-8
-Route::get('animes/{anime}', function ($slug){
+Route::get('animes/{anime}', function ($id){
     //find een post bij de slug en geef het aan een post view
-    $anime = \App\Models\Anime::find($slug);
+    $anime = \App\Models\Anime::find($id);
 
     return view('anime', [
         'anime' => $anime
     ]);
 
-})->where('anime', '[A-z_\-]+');
+});
 
 Route::get('animes', function () {
     return view('animes');
