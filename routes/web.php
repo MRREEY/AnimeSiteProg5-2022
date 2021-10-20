@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Anime;
+use App\Models\Genre;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('animes', [
-        'animes' => \App\Models\Anime::all()
+        //Laad alle animes met bijbehorende genre en get() resultaten
+        //Niet meer dan 2 queries
+        'animes' => \App\Models\Anime::with('genre')->get()
     ]);
 });
 
-//Dynamic linking
-//Laracast-8
-Route::get('animes/{anime}', function ($id){
-    //find een post bij de slug en geef het aan een post view
-    $anime = \App\Models\Anime::find($id);
-
+//geeft anime waar de slug matched met de slug die word gegeven en geef de firstOrFail()
+Route::get('animes/{anime:slug}', function (Anime $anime){
     return view('anime', [
         'anime' => $anime
     ]);
@@ -35,6 +34,12 @@ Route::get('animes/{anime}', function ($id){
 
 Route::get('animes', function () {
     return view('animes');
+});
+
+Route::get('genres/{genre:slug}', function (Genre $genre) {
+    return view('animes', [
+        'animes' => $genre->animes
+    ]);
 });
 
 Route::get('/about', [AboutController::class, 'show']);

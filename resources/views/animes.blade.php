@@ -21,10 +21,14 @@
         @foreach ($animes as $anime)
             <article>
                 <h1>
-                    <a href="/animes/{{$anime->id}}">
+                    <a href="/animes/{{$anime->slug}}">
                         {!! $anime->title !!}
                     </a>
                 </h1>
+
+                    <p>
+                        <a href="/genres/{{ $anime->genre->slug }}">{{ $anime->genre->name }}</a>
+                    </p>
 
                 <div>
                     {!! $anime->excerpt !!}

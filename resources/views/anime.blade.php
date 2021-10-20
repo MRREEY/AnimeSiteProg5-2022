@@ -23,6 +23,10 @@
                 {!! $anime->title !!}
             </h1>
 
+            <p>
+                <a href="/genres/{{ $anime->genre->slug }}">{{ $anime->genre->name }}</a>
+            </p>
+
             <div>
                 {!! $anime->body !!}
             </div>
