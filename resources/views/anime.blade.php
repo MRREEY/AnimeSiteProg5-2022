@@ -24,7 +24,7 @@
             </h1>
 
             <p>
-                <a href="/genres/{{ $anime->genre->slug }}">{{ $anime->genre->name }}</a>
+                By <a href="/authors/{{$anime->author->username}}">{{ $anime->author->username }}</a> Tag: <a href="/genres/{{ $anime->genre->slug }}">{{ $anime->genre->name }}</a>
             </p>
 
             <div>
