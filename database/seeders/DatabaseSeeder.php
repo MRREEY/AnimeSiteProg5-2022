@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        Anime::truncate();
-        Genre::truncate();
+//        User::truncate();
+//        Anime::truncate();
+//        Genre::truncate();
 
          \App\Models\Anime::factory(10)->create();
     }

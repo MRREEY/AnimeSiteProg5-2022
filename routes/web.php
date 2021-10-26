@@ -21,7 +21,8 @@ Route::get('/', function () {
     return view('animes', [
         //Laad alle animes met bijbehorende genre en author en get() resultaten
         //Niet meer dan 3 queries
-        'animes' => \App\Models\Anime::latest()->with('genre', 'author')->get()
+        'animes' => \App\Models\Anime::latest()->get(),
+        'genres' => Genre::all()
     ]);
 });
 
@@ -39,13 +40,16 @@ Route::get('animes', function () {
 
 Route::get('genres/{genre:slug}', function (Genre $genre) {
     return view('animes', [
-        'animes' => $genre->animes
+        'animes' => $genre->animes,
+        'currentGenre' => $genre,
+        'genres' => Genre::all()
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('animes', [
-        'animes' => $author->animes
+        'animes' => $author->animes,
+        'genres' => Genre::all()
     ]);
 });
 
