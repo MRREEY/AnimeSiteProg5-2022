@@ -21,9 +21,8 @@
             <x-animes-grid :animes="$animes" />
         @else
             <p class="text-center">
-                Geen posts :(
+                No Anime posts :(
             </p>
-
         @endif
     </main>
 </x-layout>

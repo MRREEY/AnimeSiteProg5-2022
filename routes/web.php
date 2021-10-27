@@ -4,6 +4,7 @@ use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\User;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AnimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,22 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('animes', [
-        //Laad alle animes met bijbehorende genre en author en get() resultaten
-        //Niet meer dan 3 queries
-        'animes' => \App\Models\Anime::latest()->get(),
-        'genres' => Genre::all()
-    ]);
-});
-
-//geeft anime waar de slug matched met de slug die word gegeven en geef de firstOrFail()
-Route::get('animes/{anime:slug}', function (Anime $anime){
-    return view('anime', [
-        'anime' => $anime
-    ]);
-
-});
+Route::get('/', [AnimeController::class, 'index'])->name('home');
+Route::get('animes/{anime:slug}', [AnimeController::class, 'show']);
 
 Route::get('animes', function () {
     return view('animes');
@@ -44,7 +31,7 @@ Route::get('genres/{genre:slug}', function (Genre $genre) {
         'currentGenre' => $genre,
         'genres' => Genre::all()
     ]);
-});
+})->name('genre');
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('animes', [

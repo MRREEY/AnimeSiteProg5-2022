@@ -32,7 +32,7 @@
                             </g>
                         </svg>
 
-                        Back to Posts
+                        Back to Animes
                     </a>
 
                     <div class="space-x-2">
