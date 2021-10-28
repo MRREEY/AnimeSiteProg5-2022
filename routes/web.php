@@ -4,7 +4,9 @@ use App\Models\Anime;
 use App\Models\Genre;
 use App\Models\User;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +43,12 @@ Route::get('authors/{author:username}', function (User $author) {
 });
 
 Route::get('/about', [AboutController::class, 'show']);
+
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest'); //Moet uitgelogd zijn
+Route::post('sessions', [SessionsController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'); //Moet ingelogd zijn
+
