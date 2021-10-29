@@ -44,11 +44,17 @@ Route::get('authors/{author:username}', function (User $author) {
 
 Route::get('/about', [AboutController::class, 'show']);
 
+//Register
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest'); //Moet uitgelogd zijn
+//Sessions
 Route::post('sessions', [SessionsController::class, 'store'])->middleware('guest');
 
+//Login
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest'); //Moet uitgelogd zijn
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'); //Moet ingelogd zijn
 
+//Create
+Route::get('admin/animes/create', [AnimeController::class, 'create'])->middleware('admin');
+Route::post('admin/animes', [AnimeController::class, 'store'])->middleware('admin');
