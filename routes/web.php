@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminAnimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,10 @@ Route::post('sessions', [SessionsController::class, 'store'])->middleware('guest
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest'); //Moet uitgelogd zijn
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'); //Moet ingelogd zijn
 
-//Create
-Route::get('admin/animes/create', [AnimeController::class, 'create'])->middleware('admin');
-Route::post('admin/animes', [AnimeController::class, 'store'])->middleware('admin');
+//Admin
+Route::get('admin/animes/create', [AdminAnimeController::class, 'create'])->middleware('admin');
+Route::post('admin/animes', [AdminAnimeController::class, 'store'])->middleware('admin');
+Route::get('admin/animes', [AdminAnimeController::class, 'index'])->middleware('admin');
+Route::get('admin/animes/{anime}/edit', [AdminAnimeController::class, 'edit'])->middleware('admin');
+Route::patch('admin/animes/{anime}', [AdminAnimeController::class, 'update'])->middleware('admin');
+Route::delete('admin/animes/{anime}', [AdminAnimeController::class, 'destroy'])->middleware('admin');
