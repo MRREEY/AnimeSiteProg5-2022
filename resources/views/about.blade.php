@@ -16,21 +16,25 @@
             <hr>
                 <div class="nav">
                     <ul>
-                        <li><a class="active" href="/">Home</a></li>
-                        <li><a href="/">Animes</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/">Ga terug</a></li>
                     </ul>
                 </div>
             <hr>
 
-    <div class="container">
-        <p>
-            De Aninfo site is bedoelt om vragen te stellen over bepaalde anime gerelateerde vragen.
-            Wanneer je een account hebt aangemaakt kun je je eigen forum beginnen en kan je bijdragen
-            aan de forum van anderen.
-        </p>
-    </div>
+        <div class="container">
+            <p>
+                Bedankt voor je actieve bijdrage op deze site!!!
+            </p>
+        </div>
+
+        <div class="container">
+            <p>
+                De Aninfo site is bedoelt om nieuws te vinden over bepaalde animes! Elke dag de nieuwste anime nieuws
+                op 1 platform!!!
+            </p>
+        </div>
+
+            <img src="https://i1.wp.com/www.bestworldevents.com/wp-content/uploads/2020/05/Thank-you-animation.gif?resize=436%2C367" alt="" width="400" height="400" class="rounded-full container" >
 
     </body>
 </html>

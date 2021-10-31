@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminAnimeController;
+use App\Http\Controllers\AnimeCommentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,7 @@ Route::get('authors/{author:username}', function (User $author) {
     ]);
 });
 
+//EasterEgg pagina (Diepere Validatie)
 Route::get('/about', [AboutController::class, 'show']);
 
 //Register
@@ -52,7 +54,10 @@ Route::post('register', [RegisterController::class, 'store'])->middleware('guest
 //Sessions
 Route::post('sessions', [SessionsController::class, 'store'])->middleware('guest');
 
-//Login
+//Comments
+Route::post('animes/{anime:slug}/comments', [AnimeCommentsController::class, 'store']);
+
+//Login && Logout
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest'); //Moet uitgelogd zijn
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'); //Moet ingelogd zijn
 

@@ -8,11 +8,11 @@
 
 
     <body style="font-family: Open Sans, sans-serif">
-        <section class="px-6 py-8">
+        <section class="px-6 py-8 bg-purple-200">
             <nav class="md:flex md:justify-between md:items-center">
                 <div>
                     <a href="/">
-                        <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                        <img src="/images/BannerAnime.jpg" alt="Banner" width="200" height="16">
                     </a>
                 </div>
 
@@ -23,9 +23,10 @@
                                 <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->username }}!</button>
                             </x-slot>
 
-                            <x-dropdown-item href="/admin/animes" :active="request()->is('admin/animes')">Dashboard</x-dropdown-item>
-                            <x-dropdown-item href="/admin/animes/create" :active="request()->is('admin/animes/create')">New Post</x-dropdown-item>
-                            <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+                                <x-dropdown-item href="/admin/animes" :active="request()->is('admin/animes')">Dashboard</x-dropdown-item>
+                                <x-dropdown-item href="/admin/animes/create" :active="request()->is('admin/animes/create')">New Anime</x-dropdown-item>
+                                <x-input></x-input>
+                                <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 
                             <form id="logout-form" method="POST" action="/logout" class="hidden">
                                 @csrf
@@ -45,10 +46,10 @@
 
             {{ $slot }}
 
-            <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-                <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
-                <h5 class="text-3xl">Stay in touch with the latest posts</h5>
-                <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
+            <footer class="bg-purple-600 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
+                <img src="/images/emailBanner.png" alt="" class="mx-auto -mb-1" style="width: 145px;">
+                <h5 class="text-3xl">Do you have Anime news Topics?</h5>
+                <p class="text-sm mt-3">Subscribe to stay aware of new Anime topics!</p>
 
                 <div class="mt-10">
                     <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
@@ -64,7 +65,7 @@
                             </div>
 
                             <button type="submit"
-                                    class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
+                                    class="transition-colors duration-300 bg-purple-400 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                             >
                                 Subscribe
                             </button>

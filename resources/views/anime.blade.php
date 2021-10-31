@@ -11,7 +11,7 @@
                 </p>
 
                 <div class="flex items-center lg:justify-center text-sm mt-4">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="/images/pfPic.jpg" alt="Lary avatar" width="50" height="50">
                     <div class="ml-3 text-left">
                         <h5 class="font-bold">{{ $anime->author->username }}</h5>
                     </div>
@@ -46,6 +46,37 @@
 
                 <div class="space-y-4 lg:text-lg leading-loose">{{ $anime->body }}</div>
             </div>
+
+            <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                @auth
+                    <x-comment-panel>
+                        <form method="POST" action="/animes/{{ $anime->slug }}/comments">
+                            @csrf
+
+                            <header class="flex item-center">
+                                <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40" height="40" class="rounded-full">
+
+                                <h2 class="ml-4">{{ auth()->user()->username }}</h2>
+                            </header>
+
+                            <div class="mt-6">
+                            <textarea name="body"
+                                      class="w-full text-sm focus:outline-none focus:ring"
+                                      rows="5"
+                                      placeholder="Write here!"></textarea>
+                            </div>
+
+                            <div class="flex justify-end mt-6 pt-6 border-t border-purple-400">
+                                <button type="submit" class="bg-purple-600 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-purple-700">Comment</button>
+                            </div>
+                        </form>
+                    </x-comment-panel>
+                @endauth
+
+                @foreach($anime->comments as $comment)
+                <x-anime-comment :comment="$comment"/>
+                @endforeach
+            </section>
         </article>
     </main>
 </section>

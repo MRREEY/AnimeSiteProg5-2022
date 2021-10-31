@@ -28,7 +28,7 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                        for="slug"
                 >
-                    Slug
+                    Url line
                 </label>
 
                 <input class="border border-gray-400 p-2 w-full"
@@ -69,7 +69,7 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                        for="excerpt"
                 >
-                    Excerpt
+                    Inleiding
                 </label>
 
                 <textarea class="border border-gray-400 p-2 w-full"

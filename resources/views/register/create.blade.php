@@ -90,7 +90,7 @@
                             <li class="text-red-500 text-xs">{{ $error }}</li>
                     @endforeach
                     </ul>
-
+                </div>
             </form>
         </main>
     </section>
